@@ -1,2 +1,2 @@
 # kingdee-data-ui
-web UI kingdee-bigdata-ui for react.js (base on  reactv.16)
+kingdee-bigdata-webUi for react.js (base on react V.16)

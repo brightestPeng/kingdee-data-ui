@@ -1,0 +1,51 @@
+/*
+ * @Author: wenjia_peng 
+ * @Date: 2019-07-19 09:31:13 
+ * @Last Modified by: wenjia_peng
+ * @Last Modified time: 2019-07-19 16:26:14
+ */
+
+@font-face {
+  font-family: "iconfont"; /* project id 1303620 */
+  src: url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.eot");
+  src: url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.eot?#iefix")
+      format("embedded-opentype"),
+    url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.woff2") format("woff2"),
+    url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.woff") format("woff"),
+    url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.ttf") format("truetype"),
+    url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.svg#iconfont") format("svg");
+}
+
+.icon {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  display: block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-close:before {
+  content: "\e7fc";
+}
+.icon-question:before {
+  content: "\e782";
+}
+
+
+
+.icon-spin {
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0)
+    }
+    to {
+      transform: rotate(360deg)
+    }
+  }
