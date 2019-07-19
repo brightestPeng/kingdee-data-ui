@@ -1,38 +1,47 @@
-const path = require("path");
+//生产环境  组件发布
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const merge = require("webpack-merge");
+const paths = require("./paths");
+const webpackCommon = require("./webpack.common");
 
-module.exports = {
-  mode: "production",
-  entry: path.resolve(__dirname, "../src/index.js"),
-  output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "king-data-ui.min.js",
-    libraryTarget: "commonjs2"
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js/,
-        exclude: /node_modules/,
-        use: ["babel-loader"]
-      },
-      {
-        test: /\.less/,
-        exclude: /node_modules/,
-        use: [
-          "style-loader",
-          "css-loader",
-          {
-            loader: "less-loader",
-            options: {
-              javascriptEnabled: true
+module.exports = merge(
+  {
+    mode: "production",
+    entry: {
+      index: paths.entryPath,
+      ...paths.componentsPath
+    },
+    output: {
+      path: paths.outputDir,
+      filename: "[name]/index.js",
+      library: ["kingdee-ui", "[name]"],
+      libraryTarget: "umd",
+      publicPath: "/"
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js/,
+          exclude: /node_modules/,
+          use: ["babel-loader"]
+        },
+        {
+          test: /\.less/,
+          exclude: /node_modules/,
+          use: [
+            "style-loader",
+            "css-loader",
+            {
+              loader: "less-loader",
+              options: {
+                javascriptEnabled: true
+              }
             }
-          }
-        ]
-      }
-    ]
+          ]
+        }
+      ]
+    },
+    plugins: [new CleanWebpackPlugin()]
   },
-  plugins:[
-      new CleanWebpackPlugin()
-  ]
-};
+  webpackCommon
+);
