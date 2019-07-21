@@ -1,0 +1,65 @@
+@import "../style/mixin.less";
+
+.pure-btn {
+  padding: 0px 15px;
+  background: #ccc;
+  height: 32px;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 4px;
+  color: @font-color;
+  cursor: pointer;
+  background-color:@white-color;
+  border:1px solid transparent;
+  border-color:@border-color;
+
+  &:hover{
+    .minxin-color(@primary-color,@primary-color);
+  }
+
+  //危险
+  &--danger{
+    .minxin-color(@danger-color,@border-color,#f5f5f5);
+
+    &:hover{
+      .minxin-color(@white-color,@danger-color,@danger-color);
+    }
+  }
+
+  //基本
+  &--primary{
+    .minxin-color(@white-color,@primary-color,@primary-color);
+
+    &:hover{
+      .minxin-color(@white-color,@hover-color,@hover-color);
+    }
+  }
+
+  //dashed
+  &--dashed{
+    border-style:dashed;
+  }
+
+  //link
+  &--link{
+    border: none;
+    color: @primary-color;
+
+    &:hover{
+      border: none;
+      color: @hover-color;
+    }
+  }
+
+  // big
+  &--large{
+    .minxin-size(@lg-size,0 15px,16px);
+  }
+
+  //small
+  &--small{
+    .minxin-size(@sm-size,0 7px);
+  }
+}

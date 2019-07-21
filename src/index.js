@@ -1,4 +1,6 @@
-import Modal from "./components/modal";
-import Icon from "./components/icon";
+import { Modal,Icon } from "components";
 
-export { Modal, Icon };
+console.log(Modal);
+console.log(Icon);
+
+export default { Modal, Icon };

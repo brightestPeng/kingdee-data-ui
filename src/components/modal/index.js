@@ -7,7 +7,7 @@
 
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Icon from "../icon/index";
+import { Icon } from "components";
 
 import "./style/index.less";
 

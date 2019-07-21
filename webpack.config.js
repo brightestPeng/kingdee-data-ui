@@ -1,9 +1,10 @@
-const path = require("path");
-
 module.exports = (env)=>{
-    if(env && env.NODE_ENV === "production"){
-        return require("./config/webpack.config.prod");
-    }else{
-        return require("./config/webpack.config.dev");
+    switch(env.NODE_TYPE){
+        case "production":
+            return require("./config/webpack.config.prod");
+        case "analyzer":
+            return require("./config/webpack.analyzer");
+        default:
+            return require("./config/webpack.config.dev");
     }
 }
