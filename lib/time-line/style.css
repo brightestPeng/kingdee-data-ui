@@ -1,0 +1,39 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PingFangSC-Regular";
+}
+.kingdee-timeline-item {
+  position: relative;
+  font-size: 12px;
+  color: #666666;
+  border-left: 1px solid #dddddd;
+  padding: 10px 0px 10px 14px;
+}
+.kingdee-timeline-item--time {
+  font-family: Helvetica;
+  color: #999999;
+}
+.kingdee-timeline-item--point {
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  margin-top: -3px;
+  width: 5px;
+  height: 5px;
+  background: #cccccc;
+  border-radius: 100%;
+}
+.kingdee-timeline-item .kingdee-icon-location {
+  position: absolute;
+  top: 0;
+  left: -10px;
+  margin-top: -12px;
+  font-size: 20px;
+  color: #2386EE;
+}
+.kingdee-timeline-item:nth-child(1) {
+  padding: 0px 0px 10px 14px;
+}
+

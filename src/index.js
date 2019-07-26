@@ -1,6 +1,8 @@
-import { Modal,Icon } from "components";
+import Modal from "./components/modal";
+import Icon from "./components/icon";
+import Form from "./components/form";
+import Button from "./components/button";
+import Input from "./components/input";
+import TimeLine from "./components/time-line";
 
-console.log(Modal);
-console.log(Icon);
-
-export default { Modal, Icon };
+export { Modal, Icon, Form, Button, Input, TimeLine };

@@ -5,7 +5,8 @@ module.exports = {
   resolve: {
     alias: {
       components: paths.componentsPath
-    }
+    },
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
@@ -13,6 +14,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: ["babel-loader","ts-loader"]
       },
       {
         test: /\.less$/,

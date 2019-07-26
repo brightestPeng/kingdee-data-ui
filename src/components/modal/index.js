@@ -2,16 +2,16 @@
  * @Author: wenjia_peng
  * @Date: 2019-07-18 17:27:02
  * @Last Modified by: wenjia_peng
- * @Last Modified time: 2019-07-19 16:32:33
+ * @Last Modified time: 2019-07-25 17:02:04
  */
 
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import { Icon } from "components";
+import { Icon, Button } from "components";
 
 import "./style/index.less";
 
-class Modal extends Component {
+class Modal extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,16 @@ class Modal extends Component {
   }
 
   render() {
-    const { children, visible, onClose, onFooter, onOk } = this.props;
+    const {
+      children,
+      visible,
+      onClose,
+      onFooter,
+      onOk,
+      title,
+      width,
+      zIndex
+    } = this.props;
 
     return ReactDOM.createPortal(
       <div
@@ -43,31 +52,32 @@ class Modal extends Component {
         }}
       >
         <div key="modal-shade" className="modal-shade" />
-        <div key="modal-content" className="modal-content">
+        <div
+          key="modal-content"
+          className="modal-content"
+          style={{
+            width: width ? width : 520,
+            zIndex: zIndex ? zIndex : 1000
+          }}
+        >
           <div className="modal-content-header">
             <div className="left">
-              <span>弹框标题</span>
-              <Icon
-                style={{
-                  cursor: "pointer",
-                  marginLeft: 8
-                }}
-                type="question"
-              />
+              <span className="title">{title ? title : "弹框"}</span>
+              <Icon type="question" />
             </div>
             <div className="right">
-              <Icon
-                onClick={onClose}
-                style={{
-                  cursor: "pointer"
-                }}
-                type="close"
-              />
+              <Icon onClick={onClose} style={{}} type="close" />
             </div>
           </div>
           <div className="modal-content-children">{children}</div>
           <div className="modal-content-footer">
-            {onFooter ? onFooter : <button onClick={onOk}>确认</button>}
+            {onFooter ? (
+              onFooter
+            ) : (
+              <Button type="primary" onClick={onOk}>
+                确认
+              </Button>
+            )}
           </div>
         </div>
       </div>,

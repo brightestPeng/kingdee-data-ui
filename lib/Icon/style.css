@@ -2,37 +2,19 @@
  * @Author: wenjia_peng 
  * @Date: 2019-07-19 09:31:13 
  * @Last Modified by: wenjia_peng
- * @Last Modified time: 2019-07-19 16:26:14
+ * @Last Modified time: 2019-07-22 18:44:16
  */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PingFangSC-Regular";
+}
 @font-face {
-  font-family: "iconfont";
+  font-family: 'iconfont';
   /* project id 1303620 */
-  src: url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.eot");
-  src: url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.woff2") format("woff2"), url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.woff") format("woff"), url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.ttf") format("truetype"), url("//at.alicdn.com/t/font_1303620_vp5z7d5j5hl.svg#iconfont") format("svg");
-}
-.icon {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  display: block;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-close:before {
-  content: "\e7fc";
-}
-.icon-question:before {
-  content: "\e782";
-}
-.icon-spin {
-  -webkit-animation-name: rotate;
-          animation-name: rotate;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  src: url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.eot');
+  src: url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.woff2') format('woff2'), url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.woff') format('woff'), url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.ttf') format('truetype'), url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.svg#iconfont') format('svg');
 }
 @-webkit-keyframes rotate {
   from {
@@ -53,5 +35,36 @@
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+.kingdee-icon {
+  font-family: "iconfont" !important;
+  width: 16px;
+  height: 16px;
+  color: #7f93bc;
+  font-size: 16px;
+  font-style: normal;
+  display: block;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.kingdee-icon-close:before {
+  content: "\e7fc";
+}
+.kingdee-icon-question:before {
+  content: "\e782";
+}
+.kingdee-icon-location:before {
+  content: "\e76f";
+}
+.kingdee-icon-spin {
+  -webkit-animation-name: rotate;
+          animation-name: rotate;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 

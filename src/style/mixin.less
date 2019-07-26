@@ -1,14 +1,26 @@
-@primary-color: #1890ff;
+@primary-color: rgba(35, 134, 238, 1);
 @danger-color:#f5222d;
 @hover-color:#40a9ff;
 @white-color:#fff;
-@border-color:#d9d9d9;
+@border-color:#DBDBDB;
 @font-color:rgba(0,0,0,0.65);
+
+//蒙层背景颜色
+@shade-color:rgba(0,0,0,0.5);
+//icon默认颜色
+@icon-color:rgba(127, 147, 188, 1);
 
 //高度变量
 @lg-size:40px;
 @mid-size:32px;
 @sm-size:24px;
+
+//初始化
+html,body{
+  margin: 0;
+  padding: 0;
+  font-family: "PingFangSC-Regular";
+}
 
 .minxin-size(@hg,@pd:0 15px,@fz:14px){
   height: @hg;

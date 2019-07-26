@@ -1,0 +1,68 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PingFangSC-Regular";
+}
+.kingdee-btn {
+  padding: 0px 15px;
+  background: #ccc;
+  height: 32px;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-color: #DBDBDB;
+  outline: none;
+}
+.kingdee-btn:hover {
+  color: #2386ee;
+  border-color: #2386ee;
+}
+.kingdee-btn--danger {
+  color: #f5222d;
+  border-color: #DBDBDB;
+  background-color: #f5f5f5;
+}
+.kingdee-btn--danger:hover {
+  color: #fff;
+  border-color: #f5222d;
+  background-color: #f5222d;
+}
+.kingdee-btn--primary {
+  color: #fff;
+  border-color: #2386ee;
+  background-color: #2386ee;
+}
+.kingdee-btn--primary:hover {
+  color: #fff;
+  border-color: #40a9ff;
+  background-color: #40a9ff;
+}
+.kingdee-btn--dashed {
+  border-style: dashed;
+}
+.kingdee-btn--link {
+  border: none;
+  color: #2386ee;
+}
+.kingdee-btn--link:hover {
+  border: none;
+  color: #40a9ff;
+}
+.kingdee-btn--large {
+  height: 40px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+.kingdee-btn--small {
+  height: 24px;
+  padding: 0 7px;
+  font-size: 14px;
+}
+

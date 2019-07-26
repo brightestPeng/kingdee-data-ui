@@ -1,0 +1,108 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PingFangSC-Regular";
+}
+.kingdee-input {
+  outline: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 32px;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  line-height: 32px;
+  line-height: 1.5 \9;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #DBDBDB;
+  border-radius: 4px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.kingdee-input__error {
+  border-color: #f5222d;
+  outline: none;
+}
+.kingdee-input_textarea {
+  min-height: 50px;
+  max-width: 100%;
+}
+.kingdee-input:focus {
+  border-color: #2386ee;
+}
+.kingdee-input-checkbox {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+.kingdee-input-checkbox_input {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  border-radius: 2px;
+}
+.kingdee-input-checkbox_input:checked + .kingdee-input-checkbox_span {
+  background: #2386ee;
+}
+.kingdee-input-checkbox_span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid #d8d8d8;
+  background: white;
+}
+.kingdee-input-checkbox_span:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 3px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.kingdee-input-checkbox_checked_span {
+  background: #2386ee;
+}
+.react-select .css-1okebmr-indicatorSeparator {
+  display: none;
+}
+.react-select .css-yk16xz-control {
+  border-color: #DBDBDB;
+}
+.react-select .css-yk16xz-control:hover {
+  border-color: #DBDBDB;
+}
+.react-select .css-1pahdxg-control {
+  border-color: #2386ee;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #fff;
+}
+.react-select .css-1pahdxg-control:hover {
+  border-color: #2386ee;
+}
+
