@@ -1,44 +1,47 @@
 @primary-color: rgba(35, 134, 238, 1);
-@danger-color:#f5222d;
-@hover-color:#40a9ff;
-@white-color:#fff;
-@border-color:#DBDBDB;
-@font-color:rgba(0,0,0,0.65);
+@danger-color: #f5222d;
+@hover-color: #40a9ff;
+@white-color: #fff;
+@border-color: #dbdbdb;
+@font-color: rgba(0, 0, 0, 0.65);
 
 //蒙层背景颜色
-@shade-color:rgba(0,0,0,0.5);
+@shade-color: rgba(0, 0, 0, 0.5);
 //icon默认颜色
-@icon-color:rgba(127, 147, 188, 1);
+@icon-color: rgba(127, 147, 188, 1);
 
 //高度变量
-@lg-size:40px;
-@mid-size:32px;
-@sm-size:24px;
+@lg-size: 40px;
+@mid-size: 32px;
+@sm-size: 24px;
 
 //初始化
-html,body{
+html,
+body {
   margin: 0;
   padding: 0;
-  font-family: "PingFangSC-Regular";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", SimSun, sans-serif;
 }
 
-.minxin-size(@hg,@pd:0 15px,@fz:14px){
+.minxin-size(@hg,@pd:0 15px,@fz:14px) {
   height: @hg;
   padding: @pd;
   font-size: @fz;
 }
 
-.minxin-color(@color){
+.minxin-color(@color) {
   border-color: @color;
 }
 
-.minxin-color(@fontColor,@brColor){
+.minxin-color(@fontColor,@brColor) {
   color: @fontColor;
-  border-color:@brColor;
+  border-color: @brColor;
 }
 
-.minxin-color(@fontColor,@brColor,@bgColor){
+.minxin-color(@fontColor,@brColor,@bgColor) {
   color: @fontColor;
-  border-color:@brColor;
+  border-color: @brColor;
   background-color: @bgColor;
 }

@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "PingFangSC-Regular";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
 }
 .kingdee-input {
   outline: none;
@@ -26,7 +26,7 @@ body {
   line-height: 1.5 \9;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #DBDBDB;
+  border: 1px solid #dbdbdb;
   border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -91,10 +91,10 @@ body {
   display: none;
 }
 .react-select .css-yk16xz-control {
-  border-color: #DBDBDB;
+  border-color: #dbdbdb;
 }
 .react-select .css-yk16xz-control:hover {
-  border-color: #DBDBDB;
+  border-color: #dbdbdb;
 }
 .react-select .css-1pahdxg-control {
   border-color: #2386ee;

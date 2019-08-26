@@ -23,12 +23,12 @@ const hasMessage = (value, rules, error, errors, key) => {
   });
 };
 
-const checkError = (state, obj) => {
+const checkError = obj => {
   let errors = {};
   Object.keys(obj).forEach(index => {
     let value = obj[index].defaultValue ? obj[index].defaultValue : "";
-    if (typeof state[index] !== "undefined") {
-      value = state[index].value;
+    if (typeof obj[index].value !== "boolean" && obj[index].value) {
+      value = obj[index].value;
     }
 
     if (obj[index].rules && obj[index].rules.length > 0) {
@@ -51,6 +51,8 @@ class Form extends React.Component {
     this.submitForm = this.submitForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateStatus = this.updateStatus.bind(this);
+    this.clearAllFields = this.clearAllFields.bind(this);
+    this.setFields = this.setFields.bind(this);
   }
 
   componentDidMount() {
@@ -58,7 +60,9 @@ class Form extends React.Component {
     if (setForm) {
       setForm({
         defineField: this.defineField,
-        submitForm: this.submitForm
+        submitForm: this.submitForm,
+        clearAllFields: this.clearAllFields,
+        setFields: this.setFields
       });
     }
   }
@@ -93,23 +97,23 @@ class Form extends React.Component {
   };
 
   //进行数据绑定
-  handleChange(value, key) {
+  handleChange(value, key, bool) {
     const { name } = this.context;
-
-    this.setState({
-      [`${key}`]: Object.assign(
-        { value: value },
-        {
-          ...defaultObj[`${name}`][key]
+    if (defaultObj[name] && defaultObj[name][key]) {
+      defaultObj[name][key].value = value;
+      if (!bool) {
+        if (typeof defaultObj[name][key].onChange === "function") {
+          defaultObj[name][key].onChange(value);
         }
-      )
-    });
+      }
+    }
   }
 
   //更新字段
-  setFields(params) {
+  setFields(params, clear) {
     const { callbacks } = this.state;
-    params.isValue = true;
+    params.is__Value = true;
+    params.is__clear = !!clear;
     callbacks.forEach(cb => {
       cb(params);
     });
@@ -118,7 +122,7 @@ class Form extends React.Component {
   //更新错误提示
   setErrors(params) {
     const { callbacks } = this.state;
-    params.isMsg = true;
+    params.is__Msg = true;
     callbacks.forEach(cb => {
       cb(params);
     });
@@ -127,14 +131,14 @@ class Form extends React.Component {
   //定义上层方法
   defineField(key, config) {
     const { name } = this.context;
-
     return InnerComponent => {
       if (!defaultObj[`${name}`]) {
         defaultObj[`${name}`] = {};
+      } else {
+        if (typeof defaultObj[`${name}`][`${key}`] === "undefined") {
+          defaultObj[`${name}`][`${key}`] = { ...config };
+        }
       }
-      defaultObj[`${name}`][`${key}`] = {
-        ...config
-      };
 
       return {
         component: InnerComponent,
@@ -142,9 +146,7 @@ class Form extends React.Component {
           key: key,
           name: name,
           config: config,
-          onChange: e => {
-            this.handleChange(e, key);
-          },
+          onChange: this.handleChange,
           checked: config && config.checked,
           defaultValue:
             config && typeof config.defaultValue !== "undefined"
@@ -165,22 +167,24 @@ class Form extends React.Component {
     if (name && defaultObj[name]) {
       defaultObj[name] &&
         Object.keys(defaultObj[name]).forEach(index => {
-          if (typeof this.state[index] !== "undefined") {
-            data[index] = this.state[index].value;
+          if (
+            defaultObj[name][index] &&
+            typeof defaultObj[name][index].value !== "undefined"
+          ) {
+            data[index] = defaultObj[name][index].value;
           } else {
             data[index] =
-              defaultObj[name][index] &&
               defaultObj[name][index] &&
               typeof defaultObj[name][index].defaultValue !== "undefined"
                 ? defaultObj[name][index].defaultValue
                 : "";
           }
         });
-      errors = checkError(this.state, defaultObj[`${name}`]);
+      errors = checkError(defaultObj[`${name}`]);
 
       //更新错误提示
       this.setErrors(errors);
-      delete errors.isMsg;
+      delete errors.is__Msg;
     }
 
     let errorsArgs = Object.keys(errors).map(index => {
@@ -195,6 +199,19 @@ class Form extends React.Component {
     }
 
     callback(errorsArgs, data);
+
+    //初始化表单
+    // this.clearAllFields();
+  }
+
+  clearAllFields() {
+    const { name } = this.context;
+    let params = {};
+    Object.keys(defaultObj[name]).forEach(index => {
+      params[index] = "";
+      defaultObj[name][index].value = "";
+    });
+    this.setFields(params, true);
   }
 
   render() {

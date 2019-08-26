@@ -1,0 +1,27 @@
+@import "../../../style/mixin.less";
+
+.kingdee-ui-tabs{
+    width: 100%;
+    background: white;
+
+    .kingdee-ui-tabs_item{
+        width: 160px;
+        height: 70px;
+        display: inline-block;
+        box-sizing: border-box;
+        line-height: 70px;
+        text-align: center;
+        cursor: pointer;
+        color: #666666;
+        font-size: 18px;
+
+        &--active{
+            color:white;
+            background:linear-gradient(315deg,rgba(35,134,238,1) 0%,rgba(86,151,255,1) 100%);
+
+            .kingdee-icon{
+                color: white;
+            }
+        }
+    }
+}

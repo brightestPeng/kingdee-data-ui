@@ -1,6 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import classnames from "classnames";
 import Select from "react-select";
+
+import TextArea from "./textarea";
+
 import "./style/index.less";
 
 interface iProps {
@@ -13,8 +16,8 @@ interface iProps {
   [propName: string]: any;
 }
 
-interface iValue{
-  value:string
+interface iValue {
+  value: string;
 }
 
 const Input: React.FC<iProps> = props => {
@@ -29,14 +32,26 @@ const Input: React.FC<iProps> = props => {
     [`kingdee-input-checkbox--${props.status}`]: props.status ? true : false
   });
 
-  let value:any = props && props.options && props.options.filter((index:iValue) =>{
-    return index.value === props.value;
-  })[0];
+  let value: any = { label: props.value, value: props.value };
+
+  if (
+    props &&
+    props.options &&
+    props.options.some((index: iValue) => {
+      return index.value === props.value;
+    })
+  ) {
+    props.options.forEach((index: iValue) => {
+      if(index.value === props.value){
+        value = index;
+      }
+    })
+  }
 
   switch (props.type) {
     case "textarea":
       return (
-        <textarea onChange={props.onChange} {...props} className={inputCls} />
+        <input onChange={props.onChange} {...props}   className={inputCls} />
       );
     case "checkbox":
       return (
@@ -59,9 +74,9 @@ const Input: React.FC<iProps> = props => {
       return (
         <Select
           {...props}
-          placeholder = {props.placeholder?props.placeholder:""}
+          placeholder={props.placeholder ? props.placeholder : ""}
           options={props.options}
-          value={value}
+          value={typeof value === "undefined" ? {} : value}
           className="react-select"
           onChange={(value: any) => {
             if (props.onChange) {

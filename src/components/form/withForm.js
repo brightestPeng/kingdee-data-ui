@@ -10,6 +10,8 @@ const withForm = (config) => InnerComponent => {
         form: {
           defineField: () => () => null,
           submitForm: () => null,
+          clearAllFields: () => null,
+          setFields: () => null,
         },
         count:0
       };

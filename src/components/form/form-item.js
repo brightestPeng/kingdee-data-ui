@@ -50,17 +50,16 @@ class FormItem extends React.Component {
       const { children } = this.props;
       const key = children && children.props && children.props.key;
       if (key) {
-        if (params.isValue && typeof params[key] !== "undefined") {
+        if (params.is__Value && typeof params[key] !== "undefined") {
           this.setState({
             value: params[key],
-            first: false
+            first: params.is__clear?true:false
           });
-
           //更新值
-          this.handleUpdata(params[key]);
+          this.handleUpdata(params[key], params.is__clear);
         }
 
-        if (params.isMsg && typeof params[key] !== "undefined") {
+        if (params.is__Msg && typeof params[key] !== "undefined") {
           this.setState({
             message: params[key],
             first: false
@@ -93,9 +92,9 @@ class FormItem extends React.Component {
     }
   };
 
-  handleChange = (e,config) => {
+  handleChange = (e, config) => {
     let value;
-    switch(config){
+    switch (config) {
       case "checkbox":
         value = e.target.checked;
         break;
@@ -105,8 +104,6 @@ class FormItem extends React.Component {
       default:
         value = e.target.value;
     }
-
-    console.log(value);
 
     if (this.state.first) {
       this.setState({
@@ -124,14 +121,16 @@ class FormItem extends React.Component {
   };
 
   //当值发生改变时进行状态更新
-  handleUpdata(value) {
+  handleUpdata(value, is__clear) {
     const { children } = this.props;
 
-    //对值进行校验
-    this.getCheck(value);
+    if (!is__clear) {
+      //对值进行校验
+      this.getCheck(value);
+    }
 
     //父节点记录值
-    children.props.onChange(value, children.props.key);
+    children.props.onChange(value,children.props.key,is__clear);
   }
 
   render() {
@@ -155,8 +154,9 @@ class FormItem extends React.Component {
     const initValue =
       children &&
       children.props &&
-      typeof children.props.checked !== "undefined"
-        ? children.props.defaultValue
+      children.props.config &&
+      typeof children.props.config.defaultValue !== "undefined"
+        ? children.props.config.defaultValue
         : "";
 
     const formItemCls = classnames({

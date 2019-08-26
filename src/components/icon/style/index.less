@@ -2,20 +2,19 @@
  * @Author: wenjia_peng 
  * @Date: 2019-07-19 09:31:13 
  * @Last Modified by: wenjia_peng
- * @Last Modified time: 2019-07-22 18:44:16
+ * @Last Modified time: 2019-08-23 16:16:49
  */
 @import "../../../style/mixin.less";
 
 @font-face {
   font-family: 'iconfont';  /* project id 1303620 */
-  src: url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.eot');
-  src: url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1303620_j09q17w4ij9.svg#iconfont') format('svg');
+  src: url('./iconfont.eot');
+  src: url('./iconfont.eot?#iefix') format('embedded-opentype'),
+  url('./iconfont.woff2') format('woff2'),
+  url('./iconfont.woff') format('woff'),
+  url('./iconfont.ttf') format('truetype'),
+  url('./iconfont.svg#iconfont') format('svg');
 }
-
 @keyframes rotate {
   from {
     transform: rotate(0);
@@ -32,7 +31,7 @@
   color: @icon-color;
   font-size: 16px;
   font-style: normal;
-  display: block;
+  display: inline-block;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,6 +46,26 @@
 
   &-location:before {
     content: "\e76f";
+  }
+
+  &-down:before {
+    content: "\e688";
+  }
+
+  &-left:before {
+    content: "\e68a";
+  }
+
+  &-gou:before {
+    content: "\e608";
+  }
+
+  &-man:before {
+    content: "\e6cb";
+  }
+
+  &-woman:before {
+    content: "\e705";
   }
 
   &-spin {

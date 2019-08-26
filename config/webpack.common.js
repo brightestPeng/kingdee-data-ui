@@ -57,6 +57,26 @@ module.exports = {
         options: {
           limit: 10000
         }
+      },
+      {
+        test: /\.(jpe?g|gif|png|svg|eot|ttf|woff|woff2|otf)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              fallback: {
+                loader: "file-loader",
+                options: {
+                  outputPath: "images"
+                }
+              }
+            }
+          },
+          {
+            loader: "image-webpack-loader"
+          }
+        ]
       }
     ]
   },

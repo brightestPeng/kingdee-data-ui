@@ -2,7 +2,7 @@
  * @Author: wenjia_peng
  * @Date: 2019-07-18 17:27:02
  * @Last Modified by: wenjia_peng
- * @Last Modified time: 2019-07-25 17:02:04
+ * @Last Modified time: 2019-07-31 10:27:29
  */
 
 import React from "react";
@@ -63,7 +63,7 @@ class Modal extends React.Component {
           <div className="modal-content-header">
             <div className="left">
               <span className="title">{title ? title : "弹框"}</span>
-              <Icon type="question" />
+              {/* <Icon type="question" /> */}
             </div>
             <div className="right">
               <Icon onClick={onClose} style={{}} type="close" />
