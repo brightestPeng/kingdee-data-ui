@@ -88,16 +88,20 @@ const config = {
     {
       label: "客户系统已换成竞品",
       value: "客户系统已换成竞品"
-    },{
+    },
+    {
       label: "客户系统已换成金蝶其他产品",
       value: "客户系统已换成金蝶其他产品"
-    },{
+    },
+    {
       label: "客户经营不善确认不使用系统",
       value: "客户经营不善确认不使用系统"
-    },{
+    },
+    {
       label: "客户公司已经或即将倒闭",
       value: "客户公司已经或即将倒闭"
-    },{
+    },
+    {
       label: "商务问题未解决客户不再使用",
       value: "商务问题未解决客户不再使用"
     }
@@ -116,7 +120,7 @@ const AppTest = ({ form }) => {
   const [status, setStatus] = useState("");
   const [activeKey, setActiveKey] = useState("");
 
-  const { submitForm, defineField, clearAllFields,setFields } = form;
+  const { submitForm, defineField, clearAllFields, setFields } = form;
 
   const handleClose = () => {
     submitForm((error, data) => {
@@ -135,8 +139,8 @@ const AppTest = ({ form }) => {
   const handleChange = value => {
     setStatus(value);
     setFields({
-      riskReason:""
-    })
+      riskReason: ""
+    });
   };
 
   const options = status
@@ -149,41 +153,48 @@ const AppTest = ({ form }) => {
 
   console.log(options);
 
-  const handleChange1 = (key)=>{
-    console.log("change1",key);
+  const handleChange1 = key => {
+    console.log("change1", key);
     setActiveKey(key);
-  } 
+  };
 
-  const handleChange2 = (e)=>{
+  const handleChange2 = e => {
     e.stopPropagation();
     console.log("change2");
-  } 
+  };
 
   return (
     <div className="hr-analysisi">
-      <Tabs onChange={handleChange1} defaultActiveKey={"2"}  activeKey={activeKey}>
-        <Tabpane tab="金蝶集团" key="1" />
-        <Tabpane
-          tab={
-            <DropDown
-              list={
-                <ul>
-                  <li onClick={handleChange2} >金蝶中国</li>
-                  <li>2</li>
-                  <li>3</li>
-                </ul>
-              }
-            >
-              子公司 <Icon type="down" />
-            </DropDown>
-          }
-          key="2"
-        />
-        <Tabpane tab="tab3" key="3" />
-      </Tabs>
-      <Modal visible={visible}>字体测试模糊程度</Modal>
-      <Button onClick={() => setVisible(true)}>点击</Button>
+      <div className="test" >
+        <div style={{ display:visible?"block":"none" }} >位移bug修复</div>
+        <Tabs
+          onChange={handleChange1}
+          defaultActiveKey={"2"}
+          activeKey={activeKey}
+        >
+          <Tabpane tab="金蝶集团" key="1" />
+          <Tabpane
+            tab={
+              <DropDown
+                list={
+                  <ul>
+                    <li onClick={handleChange2}>金蝶中国</li>
+                    <li>2</li>
+                    <li>3</li>
+                  </ul>
+                }
+              >
+                子公司 <Icon type="down" />
+              </DropDown>
+            }
+            key="2"
+          />
+          <Tabpane tab="tab3" key="3" />
+        </Tabs>
+      </div>
+      <Button onClick={() => setVisible(!visible)}>点击</Button>
 
+      {/* <Modal visible={visible}>字体测试模糊程度</Modal>
       <Modal
         title="风险客户跟进"
         onClose={() => setVisible(false)}
@@ -279,7 +290,7 @@ const AppTest = ({ form }) => {
             })(<Input type="textarea" maxLength={300} />)}
           </FormItem>
         </Form>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

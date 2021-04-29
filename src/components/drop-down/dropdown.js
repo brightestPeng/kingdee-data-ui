@@ -12,7 +12,7 @@ class DropDown extends React.Component {
       visible: false,
       x: 0,
       y: 0,
-      width:0
+      width: 0
     };
 
     this.node = document.createElement("div");
@@ -34,15 +34,16 @@ class DropDown extends React.Component {
       width
     });
 
-    window.addEventListener("scroll",()=>{
-      
-    })
+    window.addEventListener("scroll", () => {});
   }
 
   //鼠标移入
   handleHover() {
+    let x = this.myRef.current.offsetTop + this.myRef.current.offsetHeight;
+    let y = this.myRef.current.offsetLeft;
     this.setState({
-      visible: true
+      visible: true,
+      x,y
     });
   }
 
@@ -55,7 +56,7 @@ class DropDown extends React.Component {
 
   render() {
     const { children, list } = this.props;
-    const { x, y, visible,width } = this.state;
+    const { x, y, visible, width } = this.state;
 
     const dpCls = classnames({
       "kingdee-ui-link": true,
@@ -70,20 +71,17 @@ class DropDown extends React.Component {
         onMouseOut={this.handleOut}
       >
         {children}
-        {createPortal(
-          <div
-            className="kingdee-ui-dropdown"
-            style={{
-              top: x,
-              left: y,
-              display: visible ? "block" : "none",
-              minWidth:width
-            }}
-          >
-            {list}
-          </div>,
-          this.node
-        )}
+        <div
+          className="kingdee-ui-dropdown"
+          style={{
+            top: x,
+            left: y,
+            display: visible ? "block" : "none",
+            minWidth: width
+          }}
+        >
+          {list}
+        </div>
       </div>
     );
   }
